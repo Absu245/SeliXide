@@ -3,13 +3,7 @@ local UserInput = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
 local oldmodule = getloadedmodules
 getloadedmodules = function(...)
-local modules = {}
-for i,v in oldmodule(...) do
-if not string.find(v:GetFullName(),'CoreGui') and not string.find(v:GetFullName(),'CorePackages') then
-table.insert(modules,v)
-end
-end
-return modules
+return oldmodule(true)
 end
 local init = loadstring(game:HttpGet('https://raw.githubusercontent.com/Upbolt/Hydroxide/revision/init.lua'))
 init()
