@@ -110,6 +110,6 @@ Interface.Open.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Open.Icon.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.Home.Logo.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.Home.Title.Text = 'Welcome to SeliXide'
-Interface.Base.Body.Pages.Home.Slogan.Text = 'specially made version for seliware(the best exec) by nvmdog'
+Interface.Base.Body.Pages.Home.Slogan.Text = 'Hydroxide version but SeliXide, fully optimized for seliware and bug fixes! (by nvmdog)'
 Interface.Parent = CoreGui
 return Interface
