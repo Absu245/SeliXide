@@ -170,6 +170,7 @@ Interface.Open.Icon.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.Home.Logo.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.MessageBox.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.Home.Title.Text = 'Welcome to SeliXide Secured'
+Interface.Base.Body.Pages.RemoteSpy.Logs.Results.Clip.Content.ScrollBarImageColor3 = Color3.fromRGB(0, 42, 255)
 Interface.Base.Body.Pages.Home.Slogan.RichText = true
 Interface.Base.Body.Pages.Home.Slogan.Text = 'Hydroxide version but SeliXide, fully optimized for seliware and bug fixes! (by nvmdog)'
 Interface.Parent = CoreGui
