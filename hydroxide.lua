@@ -1,26 +1,67 @@
 local CoreGui = game:GetService("CoreGui")
 local UserInput = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
-task.spawn(function() --yeah anti adonis
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua"))()
+if bypass_adonis then
+task.spawn(function()
+local g = getinfo or debug.getinfo
+local d = false
+local h = {}
 
-local badFunctions = {"Crash", "HardCrash", "GPUCrash", "RAMCrash", "KillClient", "SetFPS"} -- Functions to hook
+local x, y
 
-for i,v in pairs(getgc()) do 
-    if type(v) == "function" then
-        local info = debug.getinfo(v)
-        local functionName = info.name
-        
-        -- Hook crash/lag functions
-        if info.source:find('=.Core.Functions') and table.find(badFunctions, functionName) then
-            print("Hooked \"" .. functionName .. "\"")
-            hookfunction(v, function()
-                print("Stopped \"" .. functionName .. "\" from running")
+setthreadidentity(2)
+
+for i, v in getgc(true) do
+    if typeof(v) == "table" then
+        local a = rawget(v, "Detected")
+        local b = rawget(v, "Kill")
+    
+        if typeof(a) == "function" and not x then
+            x = a
+            
+            local o; o = hookfunction(x, function(c, f, n)
+                if c ~= "_" then
+                    if d then
+                        warn(`Adonis AntiCheat flagged\nMethod: {c}\nInfo: {f}`)
+                    end
+                end
+                
+                return true
             end)
+
+            table.insert(h, x)
+        end
+
+        if rawget(v, "Variables") and rawget(v, "Process") and typeof(b) == "function" and not y then
+            y = b
+            local o; o = hookfunction(y, function(f)
+                if d then
+                    warn(`Adonis AntiCheat tried to kill (fallback): {f}`)
+                end
+            end)
+
+            table.insert(h, y)
         end
     end
 end
+
+local o; o = hookfunction(getrenv().debug.info, newcclosure(function(...)
+    local a, f = ...
+
+    if x and a == x then
+        if d then
+            warn(`zins | adonis bypassed`)
+        end
+
+        return coroutine.yield(coroutine.running())
+    end
+    
+    return o(...)
+end))
+
+setthreadidentity(7)
 end)
+end
 local oldmodule = getloadedmodules
 getloadedmodules = function(...)
 return oldmodule(true)
@@ -124,13 +165,18 @@ end)
 
 Interface.Name = HttpService:GenerateGUID(false)
 Interface.ScreenInsets = 'None'
+if bypass_adonis then
 Interface.Base.Drag.Title.Text = "SeliXide Secured c.1"
+Interface.Base.Body.Pages.Home.Title.Text = 'Welcome to SeliXide Secured'
+else
+Interface.Base.Drag.Title.Text = "SeliXide c.1"
+Interface.Base.Body.Pages.Home.Title.Text = 'Welcome to SeliXide'
+end
 Interface.Base.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Open.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Open.Icon.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.Home.Logo.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.MessageBox.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
-Interface.Base.Body.Pages.Home.Title.Text = 'Welcome to SeliXide Secured'
 Interface.Base.Body.Pages.RemoteSpy.Logs.Results.Clip.Content.ScrollBarImageColor3 = Color3.fromRGB(0, 42, 255)
 Interface.Base.Body.Pages.Home.Slogan.RichText = true
 Interface.Base.Body.Pages.Home.Slogan.Text = 'Hydroxide version but SeliXide, fully optimized for seliware and bug fixes! (by nvmdog)'
