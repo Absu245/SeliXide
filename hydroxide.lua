@@ -487,5 +487,6 @@ v.ImageColor3 = Color3.fromRGB(0,0,255)
 end
 end
 Interface.Parent = CoreGui
-warn('! SELIXIDE !')
+warn('! SELIXIDE LOADED !')
+warn('! MADE FOR SELIWARE BY NVMDOG !')
 return Interface
