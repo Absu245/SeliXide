@@ -1,6 +1,10 @@
 local CoreGui = game:GetService("CoreGui")
 local UserInput = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
+if getexecutorname() ~= 'Seliware' then
+warn('! SCRIPT SPECIALLY MADE ONLY FOR SELIWARE !')
+return
+end
 if bypass_adonis then
 task.spawn(function()
 local g = getinfo or debug.getinfo
@@ -473,5 +477,11 @@ Interface.Base.MessageBox.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.RemoteSpy.Logs.Results.Clip.Content.ScrollBarImageColor3 = Color3.fromRGB(0, 42, 255)
 Interface.Base.Body.Pages.Home.Slogan.RichText = true
 Interface.Base.Body.Pages.Home.Slogan.Text = 'Hydroxide version but SeliXide, fully optimized for seliware and bug fixes! (by nvmdog)'
+for i,v in Interface.ContextMenus:GetDescendants() do
+if v.ClassName == 'ImageLabel' and v.ImageColor3 == Color3.fromRGB(170, 0, 0) then
+v.ImageColor3 = Color3.fromRGB(0,0,255)
+end
+end
 Interface.Parent = CoreGui
+warn('! SELIXIDE !')
 return Interface
