@@ -477,6 +477,10 @@ Interface.Base.MessageBox.Border.ImageColor3 = Color3.fromRGB(0, 0, 255)
 Interface.Base.Body.Pages.RemoteSpy.Logs.Results.Clip.Content.ScrollBarImageColor3 = Color3.fromRGB(0, 42, 255)
 Interface.Base.Body.Pages.Home.Slogan.RichText = true
 Interface.Base.Body.Pages.Home.Slogan.Text = 'Hydroxide version but SeliXide, fully optimized for seliware and bug fixes! (by nvmdog)'
+for i,v in Interface.Base.Prompts:GetDescendants() do
+if v.ClassName == 'ImageLabel' and v.Name == 'Border' and v.Parent ~= 'Border' then
+v.ImageColor3 = Color3.fromRGB(0,0,255)
+end
 for i,v in Interface.ContextMenus:GetDescendants() do
 if v.ClassName == 'ImageLabel' and v.ImageColor3 == Color3.fromRGB(170, 0, 0) then
 v.ImageColor3 = Color3.fromRGB(0,0,255)
