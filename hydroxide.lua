@@ -481,12 +481,12 @@ for i,v in Interface.Base.Prompts:GetDescendants() do
 if v.ClassName == 'ImageLabel' and v.Name == 'Border' and v.Parent ~= 'Border' then
 v.ImageColor3 = Color3.fromRGB(0,0,255)
 end
+end
 for i,v in Interface.ContextMenus:GetDescendants() do
 if v.ClassName == 'ImageLabel' and v.ImageColor3 == Color3.fromRGB(170, 0, 0) then
 v.ImageColor3 = Color3.fromRGB(0,0,255)
 end
 end
 Interface.Parent = CoreGui
-warn('! SELIXIDE LOADED !')
-warn('! MADE FOR SELIWARE BY NVMDOG !')
+warn('! SELIXIDE INITIALIZED !')
 return Interface
